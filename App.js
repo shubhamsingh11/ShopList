@@ -1,10 +1,18 @@
-import React from 'react';
-import { View , Text , Stylesheet } from 'react-native';
+import React , {useState} from 'react';
+import { View , Text , StyleSheet } from 'react-native';
+import Header from './components/header';
+import { uuid } from 'uuid4';
 
 const App = () => {
+
+    const [items,setItems] = useState([
+        { id : uuid(), name : 'Milk'},
+        { id : uuid(), name : 'Eggs'},
+        { id : uuid(), name : 'Cake'}
+    ])
     return (
         <View styles={styles.container}>
-            <Text styles={styles.text}>Hello World !</Text>
+            <Header title="Shopping List"/>
         </View>
     )
 }
@@ -12,6 +20,7 @@ const App = () => {
 const styles = StyleSheet.create({
     container : {
         flex : 1,
+        paddingTop : 60
     },
     text : {
         color : 'black'
